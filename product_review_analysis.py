@@ -10,9 +10,8 @@ rating = ['good', 'bad', 'excellent', 'poor', 'average']
 
 for review in reviews:
     buzzwords = []
-    
+    index = review.find('.')
     for words in review.split():
-        index = words.find('.')
         word = words.strip('.')
         if word.lower() == 'good':
             buzzwords.append('GOOD')
@@ -27,11 +26,24 @@ for review in reviews:
         else:
             buzzwords.append(word)
         
-    review_no_period = ' '.join(buzzwords)
-    print(review_no_period)
+#    review_no_period = ' '.join(buzzwords)
+#    analyzed_reviews = review_no_period[:index] + "." + review_no_period[index:]
+#    individual_reviews = '--' + analyzed_reviews[0:]
+#    print(individual_reviews)
 
 #Task 2:
-def sentiment_tally():
-    pass
+positive_words = ["good", "excellent", "great", "awesome", "fantastic", "superb", "amazing"]
+negative_words = ["bad", "poor", "terrible", "horrible", "awful", "disappointing", "subpar"]
+
+def sentiment_tally(positive, negative):
+    if positive:
+        total_positive = len(positive)
+        print(f"Total number of positive words: {total_positive}")
+    elif negative:
+        total_negative = len(negative)
+        print(f"Total number of negative words: {total_negative}")
+
+sentiment_tally(positive_words, negative_words)
+
 #Task 3:
 
