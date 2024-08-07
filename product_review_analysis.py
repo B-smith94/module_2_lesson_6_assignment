@@ -29,34 +29,40 @@ for review in reviews:
     review_no_period = ' '.join(buzzwords)
     analyzed_reviews = review_no_period[:index] + "." + review_no_period[index:]
     individual_reviews = '--' + analyzed_reviews[0:]
-#    print(individual_reviews)
+    print(individual_reviews)
 
 #Task 2:
 positive_words = ["good", "excellent", "great", "awesome", "fantastic", "superb", "amazing"]
 negative_words = ["bad", "poor", "terrible", "horrible", "awful", "disappointing", "subpar"]
 
 def sentiment_tally(positive, negative):
-    total_positive = len(positive)
-    print(f"Total number of positive words: {total_positive}")
+    for review in reviews:
+        index = reviews.index(review)
+        for words in positive_words:
+            if words in review:
+                positive_total = review.count(words)
+                print(f"Positive word total in review number {index+1}: {positive_total}")
+        for words in negative_words:
+            if words in review:
+                negative_total = review.count(words)
+                print(f"Negative word total in review number {index+1}: {negative_total}")
 
-    total_negative = len(negative)
-    print(f"Total number of negative words: {total_negative}")
-
-#sentiment_tally(positive_words, negative_words)
+sentiment_tally(positive_words, negative_words)
 
 #Task 3:
+
 for review in reviews:
     if review[:30].endswith(" "):
         summary = review[:30] + "..."
-        print(summary)
+        print(f"Summary: {summary}")
     elif review[:31].endswith(" "):
         summary = review[:31] + "..."
-        print(summary)
+        print(f"Summary: {summary}")
     elif review[:32].endswith(" "):
         summary = review[:32] + "..."
-        print(summary)
+        print(f"Summary: {summary}")
     elif review[:33].endswith(" "):
         summary = review[:33] + "..."
-        print(summary)
+        print(f"Summary: {summary}")
     else:
         break
