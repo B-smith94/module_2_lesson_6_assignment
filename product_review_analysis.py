@@ -6,23 +6,32 @@ reviews = [
         "Poor quality product. Wouldn't recommend it to anyone.",
         "The product was average. Nothing extraordinary about it."
     ]
-<<<<<<< HEAD
-
-keyword = ["good", "bad", "poor", "excellent", "average"]
-
-result = [word for word in reviews if keyword[0:] in word]
-print(result)
-
-
-=======
 rating = ['good', 'bad', 'excellent', 'poor', 'average']
-for review in reviews:
-    for substring in review:
-        print(substring)
-        
->>>>>>> b525e2697aa5853ecbcdde4dc51cb26c5ad406f8
-    
-#Task 2:
 
+for review in reviews:
+    buzzwords = []
+    
+    for words in review.split():
+        index = words.find('.')
+        word = words.strip('.')
+        if word.lower() == 'good':
+            buzzwords.append('GOOD')
+        elif word.lower() == 'bad':
+            buzzwords.append('BAD')
+        elif word.lower() == 'poor':
+            buzzwords.append('POOR')
+        elif word.lower() == 'excellent':
+            buzzwords.append('EXCELLENT')
+        elif word.lower() == 'average':
+            buzzwords.append('AVERAGE')
+        else:
+            buzzwords.append(word)
+        
+    review_no_period = ' '.join(buzzwords)
+    print(review_no_period)
+
+#Task 2:
+def sentiment_tally():
+    pass
 #Task 3:
 
