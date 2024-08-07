@@ -36,16 +36,17 @@ positive_words = ["good", "excellent", "great", "awesome", "fantastic", "superb"
 negative_words = ["bad", "poor", "terrible", "horrible", "awful", "disappointing", "subpar"]
 
 def sentiment_tally(positive, negative):
+    positive_count = 0
+    negative_count = 0
     for review in reviews:
-        index = reviews.index(review)
-        for words in positive_words:
-            if words in review:
-                positive_total = review.count(words)
-                print(f"Positive word total in review number {index+1}: {positive_total}")
-        for words in negative_words:
-            if words in review:
-                negative_total = review.count(words)
-                print(f"Negative word total in review number {index+1}: {negative_total}")
+        review_single = review.split(".")
+        review_words = review_single.strip(".")
+        for i in range(len()):
+            if i in positive_words:
+                positive_count+=1
+            elif i in negative_words:
+                negative_count+=1
+    print(f"\tThe total positive words = {positive_count}\n\tThe total negative words = {negative_count}")
 
 sentiment_tally(positive_words, negative_words)
 

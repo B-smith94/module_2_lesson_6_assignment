@@ -8,4 +8,3 @@ if len(first_name) < 3 or len(last_name) < 3:
 else: 
     print(f"Your name has {len(full_name)} characters.")
        
-    
