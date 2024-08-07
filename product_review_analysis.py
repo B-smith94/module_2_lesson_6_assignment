@@ -39,14 +39,13 @@ def sentiment_tally(positive, negative):
     positive_count = 0
     negative_count = 0
     for review in reviews:
-        review_single = review.split(".")
-        review_words = review_single.strip(".")
-        for i in range(len()):
-            if i in positive_words:
-                positive_count+=1
-            elif i in negative_words:
-                negative_count+=1
-    print(f"\tThe total positive words = {positive_count}\n\tThe total negative words = {negative_count}")
+        for words in review.split():
+            word = words.strip('.')
+            if word.lower() in positive_words:
+                positive_count += 1
+            elif word.lower() in negative_words:
+                negative_count += 1
+    print(f"\tTotal amount of positive words: {positive_count}\n\tTotal amount of negative words: {negative_count}")
 
 sentiment_tally(positive_words, negative_words)
 
